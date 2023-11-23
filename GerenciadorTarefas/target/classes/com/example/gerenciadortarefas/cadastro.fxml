@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c7aee6;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gerenciadortarefas.Controller.ControleCadastro">
+    <children>
+        <Label fx:id="title" layoutX="151.0" layoutY="37.0" text="Tela de cadastro:" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="103.0">
+            <font>
+                <Font name="JetBrains Mono Bold" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="orientacoes" layoutX="128.0" layoutY="133.0" text="Nome:&#10;&#10;Usuário:&#10;&#10;Senha: ">
+            <font>
+                <Font name="JetBrains Mono Regular" size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="campoNome" layoutX="307.0" layoutY="135.0" promptText="nome" style="-fx-background-radius: 50;" />
+        <TextField fx:id="campoUser" layoutX="307.0" layoutY="189.0" promptText="user" style="-fx-background-radius: 50;" />
+        <Button fx:id="clickCadastro" layoutX="229.0" layoutY="317.0" mnemonicParsing="false" onAction="#irParaLogin" prefHeight="49.0" prefWidth="132.0" style="-fx-background-color: #b078f5; -fx-background-radius: 10;" text="cadastrar">
+            <font>
+                <Font name="JetBrains Mono Bold" size="18.0" />
+            </font></Button>
+      <PasswordField fx:id="campoSenha" layoutX="306.0" layoutY="245.0" promptText="digite sua senha" style="-fx-background-radius: 50;" />
+      <PasswordField fx:id="confirmaSenha" layoutX="307.0" layoutY="273.0" promptText="confirmar senha" style="-fx-background-radius: 50;" />
+    </children>
+</AnchorPane>
