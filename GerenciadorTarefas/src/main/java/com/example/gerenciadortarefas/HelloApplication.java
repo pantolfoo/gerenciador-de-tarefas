@@ -1,16 +1,10 @@
 package com.example.gerenciadortarefas;
 
+import com.example.gerenciadortarefas.util.HibernateUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
-import com.example.gerenciadortarefas.model.Usuario;
-import com.example.gerenciadortarefas.util.HibernateUtil;
-import javafx.animation.Transition;
-import javafx.stage.StageStyle;
-import org.hibernate.*;
-
 import java.io.IOException;
 
 public class HelloApplication extends Application {
@@ -42,6 +36,7 @@ public class HelloApplication extends Application {
             case "login":
                 stage.setScene(loginScene);
                 break;
+
         }
     }
 

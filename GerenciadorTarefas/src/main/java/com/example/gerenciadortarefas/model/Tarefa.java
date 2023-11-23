@@ -1,92 +1,81 @@
 package com.example.gerenciadortarefas.model;
-
+import com.example.gerenciadortarefas.util.HibernateUtil;
 import jakarta.persistence.*;
+import javafx.fxml.FXML;
+import org.hibernate.Session;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Table
 @Entity
 
 public class Tarefa {
+    public static List<Tarefa> retornaTarefas;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTarefa;
+    private int idCategoria;
     @Column
-    private String titulo;
+    private String nomeCategoria;
     @Column
-    private String descricao;
+    private String descricaoCategoria;
     @Column
-    private String dataEntrega;
-    @Column
-    private float nota;
-    @Column
-    private boolean status;
+    private LocalDate dataevento;
 
-    public Tarefa (){}
+    public Tarefa() {}
 
-    public Tarefa(String titulo, String descricao, String dataEntrega, float nota, boolean status) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.dataEntrega = dataEntrega;
-        this.nota = nota;
-        this.status = status;
+    public Tarefa(String nomeCategoria, String descricaoCategoria, LocalDate dataevento) {
+        this.nomeCategoria = nomeCategoria;
+        this.descricaoCategoria = descricaoCategoria;
+        this.dataevento = dataevento;
+    }
+    @FXML
+    public  List<Tarefa> retornaTarefas (){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        java.util.List<Tarefa> tarefas = session.createQuery("from Tarefa ", Tarefa.class).getResultStream().toList();
+        session.close();
+        return tarefas;
     }
 
-    public int getIdTarefa() {
-        return idTarefa;
+    public LocalDate getDataevento() {
+        return dataevento;
     }
 
-    public void setIdTarefa(int idTarefa) {
-        this.idTarefa = idTarefa;
+    public void setDataevento(LocalDate dataevento) {
+        this.dataevento = dataevento;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public int getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public
+
+    void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getNomeCategoria() {
+        return nomeCategoria;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNomeCategoria(String nomeCategoria) {
+        this.nomeCategoria = nomeCategoria;
     }
 
-    public String getDataEntrega() {
-        return dataEntrega;
+    public String getDescricaoCategoria() {
+        return descricaoCategoria;
     }
 
-    public void setDataEntrega(String dataEntrega) {
-        this.dataEntrega = dataEntrega;
-    }
-
-    public float getNota() {
-        return nota;
-    }
-
-    public void setNota(float nota) {
-        this.nota = nota;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setDescricaoCategoria(String descricaoCategoria) {
+        this.descricaoCategoria = descricaoCategoria;
     }
 
     @Override
     public String toString() {
-        return "Tarefa{" +
-                "idTarefa=" + idTarefa +
-                ", titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", dataEntrega='" + dataEntrega + '\'' +
-                ", nota=" + nota +
-                ", status=" + status +
-                '}';
+        return "Categoria{" +
+                "idCategoria=" + idCategoria +
+                ", nomeCategoria='" + nomeCategoria + '\'' +
+                ", descricaoCategoria='" + descricaoCategoria + '}';
     }
 }

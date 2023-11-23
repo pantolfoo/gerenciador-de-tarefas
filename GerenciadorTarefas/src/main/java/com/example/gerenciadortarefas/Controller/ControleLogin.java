@@ -32,7 +32,7 @@ public class ControleLogin {
         limparErros();
         verificaUser();
         if (verificaLogin())
-            HelloApplication.mudarTela("lista");
+            HelloApplication.mudarTela("principal");
 
     }
 

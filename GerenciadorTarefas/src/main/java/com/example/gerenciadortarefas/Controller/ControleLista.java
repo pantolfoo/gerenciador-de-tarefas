@@ -1,7 +1,7 @@
 package com.example.gerenciadortarefas.Controller;
 
 import com.example.gerenciadortarefas.HelloApplication;
-import com.example.gerenciadortarefas.model.Categoria;
+import com.example.gerenciadortarefas.model.Tarefa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -9,8 +9,11 @@ import javafx.scene.control.TextField;
 import com.example.gerenciadortarefas.util.HibernateUtil;
 
 import org.hibernate.Session;
+import org.hibernate.mapping.List;
 
-public class ControleLista {
+import java.util.ArrayList;
+
+public class ControleLista  {
 @FXML
 private TextField NomeEvento;
 
@@ -20,22 +23,18 @@ private TextField Descricao;
 private DatePicker DataEvento;
 
 
-    @FXML
-    void irTelaLogin(ActionEvent event) {
-        HelloApplication.mudarTela("login");
 
-    }
     @FXML
     void irTelaprincipal(ActionEvent event){
         HelloApplication.mudarTela("principal");
     }
+
     protected void AddEvento(){
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Categoria categoria = new Categoria(getNomeEvento().getText(), getDescricao().getText(), getDataEvento().getValue());
+        Tarefa tarefa = new Tarefa(getNomeEvento().getText(), getDescricao().getText(), getDataEvento().getValue());
         session.beginTransaction();
-        session.persist(categoria);
+        session.persist(tarefa);
         session.getTransaction().commit();
-
 
         session.close();
         System.out.println("Tarefa adicionada");
