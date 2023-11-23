@@ -12,6 +12,7 @@ public class HelloApplication extends Application {
     private static Scene cadastroScene;
     private static Scene listaScene;
     private static Scene loginScene;
+    private static Scene principalScene;
 
     @Override
     public void start(Stage stageInicial) throws IOException {
@@ -21,6 +22,7 @@ public class HelloApplication extends Application {
         cadastroScene = new Scene(FXMLLoader.load(getClass().getResource("cadastro.fxml")));
         listaScene = new Scene(FXMLLoader.load(getClass().getResource("lista.fxml")));
         loginScene = new Scene(FXMLLoader.load(getClass().getResource("login.fxml")));
+        principalScene = new Scene(FXMLLoader.load(getClass().getResource("principal.fxml")));
         stage.setScene(loginScene);
         stage.show();
     }
@@ -35,6 +37,9 @@ public class HelloApplication extends Application {
                 break;
             case "login":
                 stage.setScene(loginScene);
+                break;
+            case "principal":
+                stage.setScene(principalScene);
                 break;
 
         }
