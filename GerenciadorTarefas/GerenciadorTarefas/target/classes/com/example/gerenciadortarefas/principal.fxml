@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c7aee6;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gerenciadortarefas.Controller.ControlePrincipal">
+   <children>
+      <TableView id="table" layoutX="70.0" layoutY="87.0" prefHeight="239.0" prefWidth="460.0" style="-fx-background-color: #b078f5;">
+        <columns>
+          <TableColumn id="id" fx:id="id" prefWidth="75.0" text="id" />
+          <TableColumn id="colNome" fx:id="colNome" prefWidth="75.0" text="Nome" />
+            <TableColumn id="colData" prefWidth="75.0" text="Data" />
+            <TableColumn id="colDesc" prefWidth="75.0" text="Descrição" />
+        </columns>
+      </TableView>
+      <Button fx:id="addTarefas" layoutX="70.0" layoutY="333.0" mnemonicParsing="false" onAction="#irLista" text="adicionar tarefas" />
+      <Button fx:id="sair" layoutX="489.0" layoutY="331.0" mnemonicParsing="false" onAction="#irTelaLogin" text="sair" />
+      <Label layoutX="170.0" layoutY="32.0" text="Lista de Tarefas!">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
